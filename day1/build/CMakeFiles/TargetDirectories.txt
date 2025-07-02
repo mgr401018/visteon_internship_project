@@ -1,3 +1,0 @@
-C:/Users/Trainee/visteon_internship_project/day1/build/CMakeFiles/HelloWorld.dir
-C:/Users/Trainee/visteon_internship_project/day1/build/CMakeFiles/edit_cache.dir
-C:/Users/Trainee/visteon_internship_project/day1/build/CMakeFiles/rebuild_cache.dir
