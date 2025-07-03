@@ -1,6 +1,8 @@
 //#include "./thirdparty/glfw/include/GLFW/glfw3.h"
+#include <iostream>
 #include <GLFW/glfw3.h>
 #include <GLES3/gl3.h>
+#include "tiny_gltf.h"
 
 int main(void)
 {
@@ -26,11 +28,34 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
-    float vertex[6] = {
-        0.0, 0.5,
-        -0.5, 0.0,
-        0.5, 0.0
-    };
+    std::string gltfFilename = "../examples/gltf/01_triangle/export/triangle.gltf";
+
+    tinygltf::Model model;
+    tinygltf::TinyGLTF loader;
+    std::string err, warn;
+
+    bool success = loader.LoadASCIIFromFile(&model, &err, &warn, gltfFilename);
+    if(!success){
+        std::cerr << "Failed to load gltf file: " << gltfFilename <<std::endl;
+        std::cerr << "Error: " << err << std::endl;
+        std::cerr << "Warning: " << warn << std::endl;
+        return 1;
+    }
+
+    // float vertex[6] = {
+    //     0.0, 0.5,
+    //     -0.5, 0.0,
+    //     0.5, 0.0
+    // };
+
+    uint32_t gltfPositionIndex = model.meshes[0].primitives[0].attributes["POSITION"];
+    uint32_t gltfBufferIndex = model.bufferViews[gltfPositionIndex].buffer;
+    unsigned char* gltfBufferData = model.buffers[gltfBufferIndex].data.data();
+
+    float* vertex = (float*)gltfBufferData;
+    for(int i = 0; i < 9; i++){
+        std::cout << vertex[i] << std::endl;
+    }
 
     unsigned int buffer = 0;
     glGenBuffers(1, &buffer);

@@ -32,3 +32,13 @@ if(WIN32)
     )
 elseif(UNIX)
 endif()
+
+target_include_directories(HelloWorld PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/tinyGLTF
+)
+
+target_compile_definitions(HelloWorld PRIVATE 
+    -DTINYGLTF_IMPLEMENTATION
+    -DSTB_IMAGE_IMPLEMENTATION
+    -DSTB_IMAGE_WRITE_IMPLEMENTATION
+)
