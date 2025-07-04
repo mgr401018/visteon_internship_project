@@ -95,15 +95,31 @@ int main(void)
     // glEnableVertexAttribArray(2);
     // glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)(6 * sizeof(GL_FLOAT)));
 
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), 0);
-    
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (void*)(9 * sizeof(GL_FLOAT)));
+    GLuint vertexArrayObject0 = 0;
+    glGenVertexArrays(1, &vertexArrayObject0);
+    glBindVertexArray(vertexArrayObject0);
 
     glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GL_FLOAT), (void*)(18 * sizeof(GL_FLOAT)));
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, 0);
+    
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, (void*)(9 * sizeof(GL_FLOAT)));
 
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, /*2 * sizeof(GL_FLOAT)*/ 0, (void*)(18 * sizeof(GL_FLOAT)));
+
+    GLuint vertexArrayObject1 = 0;
+    glGenVertexArrays(1, &vertexArrayObject1);
+    glBindVertexArray(vertexArrayObject1);
+
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, 0);
+    
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, (void*)(9 * sizeof(GL_FLOAT)));
+
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, /*2 * sizeof(GL_FLOAT)*/ 0, (void*)(18 * sizeof(GL_FLOAT)));
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -118,9 +134,13 @@ int main(void)
         // glVertex2d(0.0f, 0.5f);
         // glVertex2d(0.0f, -0.5f);
         // glEnd();
+        glBindVertexArray(vertexArrayObject0);
 
         glDrawArrays(GL_TRIANGLES, 0, 3);
+        
+        glBindVertexArray(vertexArrayObject1);
 
+        glDrawArrays(GL_TRIANGLES, 0, 3);
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
