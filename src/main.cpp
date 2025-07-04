@@ -48,15 +48,27 @@ int main(void)
     //     0.5, 0.0
     // };
 
+    // GLfloat vertex[] = {
+    //     -0.5f, -0.5f, 0.0f, // positions[0]​
+    //     0.0f, 0.0f, 1.0f, // normals[0]​
+    //     0.25f, 0.25f, // texture coordinates[0]​
+    //     0.5f, -0.5f, 0.0f, // positions[1]​
+    //     0.0f, 0.0f, 1.0f, // normals[1]​
+    //     0.75f, 0.25f, // texture coordinates[1]​
+    //     0.0f, 0.5f, 0.0f, // positions[2]​
+    //     0.0f, 0.0f, 1.0f, // normals[2]​
+    //     0.5f, 0.75f // texture coordinates[2]​
+    // };
+
     GLfloat vertex[] = {
         -0.5f, -0.5f, 0.0f, // positions[0]​
-        0.0f, 0.0f, 1.0f, // normals[0]​
-        0.25f, 0.25f, // texture coordinates[0]​
         0.5f, -0.5f, 0.0f, // positions[1]​
-        0.0f, 0.0f, 1.0f, // normals[1]​
-        0.75f, 0.25f, // texture coordinates[1]​
         0.0f, 0.5f, 0.0f, // positions[2]​
+        0.0f, 0.0f, 1.0f, // normals[0]​
+        0.0f, 0.0f, 1.0f, // normals[1]​
         0.0f, 0.0f, 1.0f, // normals[2]​
+        0.25f, 0.25f, // texture coordinates[0]​
+        0.75f, 0.25f, // texture coordinates[1]​
         0.5f, 0.75f // texture coordinates[2]​
     };
 
@@ -74,14 +86,24 @@ int main(void)
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STATIC_DRAW);
 
+    // glEnableVertexAttribArray(0);
+    // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), 0);
+    
+    // glEnableVertexAttribArray(1);
+    // glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)(3 * sizeof(GL_FLOAT)));
+
+    // glEnableVertexAttribArray(2);
+    // glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)(6 * sizeof(GL_FLOAT)));
+
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), 0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), 0);
     
     glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)(3 * sizeof(GL_FLOAT)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (void*)(9 * sizeof(GL_FLOAT)));
 
     glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)(6 * sizeof(GL_FLOAT)));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GL_FLOAT), (void*)(18 * sizeof(GL_FLOAT)));
+
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
