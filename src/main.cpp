@@ -13,6 +13,66 @@ struct WindowContext{
     WindowGLContext gl;
 };
 
+void loadMesh(WindowContext &windowContext, tinygltf::Model& model, unsigned int meshId){
+    GLuint vertexBuffer = 0;
+    GLuint normalBuffer = 0;
+    GLuint texCoordBuffer = 0;
+
+    uint32_t gltfAccessorPositionIndex = model.meshes[meshId].primitives[0].attributes["POSITION"];
+    uint32_t gltfAccessorNormalIndex = model.meshes[meshId].primitives[0].attributes["NORMAL"];
+    uint32_t gltfAccessorTexCoordIndex = model.meshes[meshId].primitives[0].attributes["TEXCOORD_0"];
+
+    uint32_t gltfBufferViewPositionIndex = model.accessors[gltfAccessorPositionIndex].bufferView;
+    uint32_t gltfBufferViewNormalIndex = model.accessors[gltfAccessorNormalIndex].bufferView;
+    uint32_t gltfBufferViewTexCoordIndex = model.accessors[gltfAccessorTexCoordIndex].bufferView;
+
+    uint32_t gltfBufferIndexPosition = model.bufferViews[gltfBufferViewPositionIndex].buffer;
+    uint32_t gltfBufferIndexNormal = model.bufferViews[gltfBufferViewNormalIndex].buffer;
+    uint32_t gltfBufferIndexTexCoord = model.bufferViews[gltfBufferViewTexCoordIndex].buffer;
+
+    unsigned char* gltfBufferDataPosition = model.buffers[gltfBufferIndexPosition].data.data();
+    unsigned char* gltfBufferDataNormal = model.buffers[gltfBufferIndexNormal].data.data();
+    unsigned char* gltfBufferDataTexCoord = model.buffers[gltfBufferIndexTexCoord].data.data();
+
+    uint32_t gltfPositionByteOffset = model.bufferViews[gltfBufferViewPositionIndex].byteOffset;
+    uint32_t gltfNormalByteOffset = model.bufferViews[gltfBufferViewNormalIndex].byteOffset;
+    uint32_t gltfTexCoordByteOffset = model.bufferViews[gltfBufferViewTexCoordIndex].byteOffset;
+
+    uint32_t gltfPositionByteLength = model.bufferViews[gltfBufferViewPositionIndex].byteLength;
+    uint32_t gltfNormalByteLength = model.bufferViews[gltfBufferViewNormalIndex].byteLength;
+    uint32_t gltfTexCoordByteLength = model.bufferViews[gltfBufferViewTexCoordIndex].byteLength;
+
+    glGenBuffers(1, &vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, gltfPositionByteLength, gltfBufferDataPosition + gltfPositionByteOffset, GL_STATIC_DRAW);
+
+    glGenBuffers(1, &normalBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, normalBuffer);
+    glBufferData(GL_ARRAY_BUFFER, gltfNormalByteLength, gltfBufferDataNormal + gltfNormalByteOffset, GL_STATIC_DRAW);    
+
+    glGenBuffers(1, &texCoordBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, texCoordBuffer);
+    glBufferData(GL_ARRAY_BUFFER, gltfTexCoordByteLength, gltfBufferDataTexCoord + gltfTexCoordByteOffset, GL_STATIC_DRAW);
+
+    glGenVertexArrays(1, &windowContext.gl.vertexArrayObject);
+    glBindVertexArray(windowContext.gl.vertexArrayObject);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, normalBuffer);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, texCoordBuffer);
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+}
+
 void loadShaders(WindowContext windowContext){
     // const char* vertexShaderSource = R"(
     //     #version 300 es
@@ -27,8 +87,8 @@ void loadShaders(WindowContext windowContext){
         #version 300 es
 
         layout(location = 0) in vec2 position;
-        layout(location = 1) in vec3 color;
-        out vec3 vColor;
+        layout(location = 2) in vec2 color;
+        out vec2 vColor;
         void main(){
             vColor = color;
             gl_Position = vec4(position, 0.0, 1.0);        
@@ -50,10 +110,10 @@ void loadShaders(WindowContext windowContext){
         #version 300 es
 
         precision mediump float;
-        in vec3 vColor;
+        in vec2 vColor;
         out vec4 fragColor;
         void main(){
-            fragColor = vec4(vColor, 1.0);
+            fragColor = vec4(vColor, 0.0, 1.0);
         }
     )";
 
@@ -167,17 +227,17 @@ int main(void){
     //     0.5f, 0.75f // texture coordinates[2]​
     // };
 
-    GLfloat vertex[] = {
-        -0.5f, -0.5f, 0.0f, // positions[0]​
-        0.5f, -0.5f, 0.0f, // positions[1]​
-        0.0f, 0.5f, 0.0f, // positions[2]​
-        1.0f, 0.0f, 0.0f, // normals[0]​
-        0.0f, 1.0f, 0.0f, // normals[1]​
-        0.0f, 0.0f, 1.0f, // normals[2]​
-        0.25f, 0.25f, // texture coordinates[0]​
-        0.75f, 0.25f, // texture coordinates[1]​
-        0.5f, 0.75f // texture coordinates[2]​
-    };
+    // GLfloat vertex[] = {
+    //     -0.5f, -0.5f, 0.0f, // positions[0]​
+    //     0.5f, -0.5f, 0.0f, // positions[1]​
+    //     0.0f, 0.5f, 0.0f, // positions[2]​
+    //     1.0f, 0.0f, 0.0f, // normals[0]​
+    //     0.0f, 1.0f, 0.0f, // normals[1]​
+    //     0.0f, 0.0f, 1.0f, // normals[2]​
+    //     0.25f, 0.25f, // texture coordinates[0]​
+    //     0.75f, 0.25f, // texture coordinates[1]​
+    //     0.5f, 0.75f // texture coordinates[2]​
+    // };
 
     // GLfloat vertecesPositions[] = {
     //     -0.5f, -0.5f, 0.0f,
@@ -191,6 +251,7 @@ int main(void){
     //     0.0f, 0.0f, 1.0f
     // };
 
+
     // uint32_t gltfPositionIndex = model.meshes[0].primitives[0].attributes["POSITION"];
     // uint32_t gltfBufferIndex = model.bufferViews[gltfPositionIndex].buffer;
     // unsigned char* gltfBufferData = model.buffers[gltfBufferIndex].data.data();
@@ -200,10 +261,10 @@ int main(void){
     //     std::cout << vertex[i] << std::endl;
     // }
 
-    unsigned int buffer = 0;
-    glGenBuffers(1, &buffer);
-    glBindBuffer(GL_ARRAY_BUFFER, buffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STATIC_DRAW);
+    // unsigned int buffer = 0;
+    // glGenBuffers(1, &buffer);
+    // glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    // glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STATIC_DRAW);
 
     // glEnableVertexAttribArray(0);
     // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), 0);
@@ -214,32 +275,33 @@ int main(void){
     // glEnableVertexAttribArray(2);
     // glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)(6 * sizeof(GL_FLOAT)));
 
-    GLuint vertexArrayObject0 = 0;
-    glGenVertexArrays(1, &vertexArrayObject0);
-    glBindVertexArray(vertexArrayObject0);
+    // GLuint vertexArrayObject0 = 0;
+    // glGenVertexArrays(1, &vertexArrayObject0);
+    // glBindVertexArray(vertexArrayObject0);
 
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, 0);
+    // glEnableVertexAttribArray(2);
+    // glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, 0);
     
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, (void*)(9 * sizeof(GL_FLOAT)));
+    // glEnableVertexAttribArray(1);
+    // glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, (void*)(9 * sizeof(GL_FLOAT)));
 
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, /*2 * sizeof(GL_FLOAT)*/ 0, (void*)(18 * sizeof(GL_FLOAT)));
+    // glEnableVertexAttribArray(0);
+    // glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, /*2 * sizeof(GL_FLOAT)*/ 0, (void*)(18 * sizeof(GL_FLOAT)));
 
-    GLuint vertexArrayObject1 = 0;
-    glGenVertexArrays(1, &vertexArrayObject1);
-    glBindVertexArray(vertexArrayObject1);
+    // GLuint vertexArrayObject1 = 0;
+    // glGenVertexArrays(1, &vertexArrayObject1);
+    // glBindVertexArray(vertexArrayObject1);
 
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, 0);
+    // glEnableVertexAttribArray(0);
+    // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, 0);
     
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, (void*)(9 * sizeof(GL_FLOAT)));
+    // glEnableVertexAttribArray(1);
+    // glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, /*3 * sizeof(GL_FLOAT)*/ 0, (void*)(9 * sizeof(GL_FLOAT)));
 
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, /*2 * sizeof(GL_FLOAT)*/ 0, (void*)(18 * sizeof(GL_FLOAT)));
+    // glEnableVertexAttribArray(2);
+    // glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, /*2 * sizeof(GL_FLOAT)*/ 0, (void*)(18 * sizeof(GL_FLOAT)));
 
+    loadMesh(windowContext, model, 0);
     loadShaders(windowContext);
 
     /* Loop until the user closes the window */
@@ -255,11 +317,13 @@ int main(void){
         // glVertex2d(0.0f, 0.5f);
         // glVertex2d(0.0f, -0.5f);
         // glEnd();
-        glBindVertexArray(vertexArrayObject0);
-
-        glDrawArrays(GL_TRIANGLES, 0, 3);
         
-        glBindVertexArray(vertexArrayObject1);
+        // glBindVertexArray(vertexArrayObject0);
+
+        // glDrawArrays(GL_TRIANGLES, 0, 3);
+        
+        // glBindVertexArray(vertexArrayObject1);
+        glBindVertexArray(windowContext.gl.vertexArrayObject);
 
         glDrawArrays(GL_TRIANGLES, 0, 3);
         /* Swap front and back buffers */
