@@ -4,9 +4,104 @@
 #include <GLES3/gl3.h>
 #include "tiny_gltf.h"
 
-int main(void)
-{
+struct WindowGLContext{
+    GLuint vertexArrayObject;
+    GLuint program;
+};
+
+struct WindowContext{
+    WindowGLContext gl;
+};
+
+void loadShaders(WindowContext windowContext){
+    // const char* vertexShaderSource = R"(
+    //     #version 300 es
+
+    //     layout(location = 0) in vec3 position;
+    //     void main(){
+    //         gl_Position = vec4(position, 1.0);        
+    //     }
+    // )";
+
+    const char* vertexShaderSource = R"(
+        #version 300 es
+
+        layout(location = 0) in vec2 position;
+        layout(location = 1) in vec3 color;
+        out vec3 vColor;
+        void main(){
+            vColor = color;
+            gl_Position = vec4(position, 0.0, 1.0);        
+        }
+    )";
+    
+
+    // const char* fragmentShaderSource = R"(
+    //     #version 300 es
+
+    //     precision mediump float;
+    //     out vec4 fragColor;
+    //     void main(){
+    //         fragColor = vec4(0.76, 0.0, 0.0, 1.0);
+    //     }
+    // )";
+
+    const char* fragmentShaderSource = R"(
+        #version 300 es
+
+        precision mediump float;
+        in vec3 vColor;
+        out vec4 fragColor;
+        void main(){
+            fragColor = vec4(vColor, 1.0);
+        }
+    )";
+
+    GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
+
+    GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
+
+    glCompileShader(vertexShader);
+    GLint status;
+    char errbuffer[512];
+    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &status);
+    if(status == GL_FALSE){
+        GLint length;
+        glGetShaderiv(vertexShader, GL_INFO_LOG_LENGTH, &length);
+        glGetShaderInfoLog(vertexShader, 512, &length, errbuffer);
+        std::cout << "Vertex shader compilation failed " << errbuffer << std::endl;
+    }
+
+    glCompileShader(fragmentShader);
+    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &status);
+    if(status == GL_FALSE){
+        GLint length;
+        glGetShaderiv(fragmentShader, GL_INFO_LOG_LENGTH, &length);
+        glGetShaderInfoLog(fragmentShader, 512, &length, errbuffer);
+        std::cout << "Fragment shader compilation failed " << errbuffer << std::endl;
+    }
+
+    windowContext.gl.program = glCreateProgram();
+    glAttachShader(windowContext.gl.program, vertexShader);
+    glAttachShader(windowContext.gl.program, fragmentShader);
+
+    glLinkProgram(windowContext.gl.program);
+    glGetProgramiv(windowContext.gl.program, GL_LINK_STATUS, &status);
+    if(status == GL_FALSE){
+        GLint length;
+        glGetProgramiv(windowContext.gl.program, GL_INFO_LOG_LENGTH, &length);
+        glGetProgramInfoLog(windowContext.gl.program, 512, &length, errbuffer);
+        std::cout << "Program linking failed " << errbuffer << std::endl;
+    }
+
+    glUseProgram(windowContext.gl.program);
+}
+
+int main(void){
     GLFWwindow* window;
+    WindowContext windowContext;
 
     /* Initialize the library */
     if (!glfwInit())
@@ -60,17 +155,41 @@ int main(void)
     //     0.5f, 0.75f // texture coordinates[2]​
     // };
 
+    // GLfloat vertex[] = {
+    //     -0.5f, -0.5f, 0.0f, // positions[0]​
+    //     0.5f, -0.5f, 0.0f, // positions[1]​
+    //     0.0f, 0.5f, 0.0f, // positions[2]​
+    //     0.0f, 0.0f, 1.0f, // normals[0]​
+    //     0.0f, 0.0f, 1.0f, // normals[1]​
+    //     0.0f, 0.0f, 1.0f, // normals[2]​
+    //     0.25f, 0.25f, // texture coordinates[0]​
+    //     0.75f, 0.25f, // texture coordinates[1]​
+    //     0.5f, 0.75f // texture coordinates[2]​
+    // };
+
     GLfloat vertex[] = {
         -0.5f, -0.5f, 0.0f, // positions[0]​
         0.5f, -0.5f, 0.0f, // positions[1]​
         0.0f, 0.5f, 0.0f, // positions[2]​
-        0.0f, 0.0f, 1.0f, // normals[0]​
-        0.0f, 0.0f, 1.0f, // normals[1]​
+        1.0f, 0.0f, 0.0f, // normals[0]​
+        0.0f, 1.0f, 0.0f, // normals[1]​
         0.0f, 0.0f, 1.0f, // normals[2]​
         0.25f, 0.25f, // texture coordinates[0]​
         0.75f, 0.25f, // texture coordinates[1]​
         0.5f, 0.75f // texture coordinates[2]​
     };
+
+    // GLfloat vertecesPositions[] = {
+    //     -0.5f, -0.5f, 0.0f,
+    //     0.5f, -0.5f, 0.0f,
+    //     0.0f, 0.5f, 0.0f
+    // };
+
+    // GLfloat vertecesColors[] = {
+    //     1.0f, 0.0f, 0.0f,
+    //     0.0f, 1.0f, 0.0f,
+    //     0.0f, 0.0f, 1.0f
+    // };
 
     // uint32_t gltfPositionIndex = model.meshes[0].primitives[0].attributes["POSITION"];
     // uint32_t gltfBufferIndex = model.bufferViews[gltfPositionIndex].buffer;
@@ -120,6 +239,8 @@ int main(void)
 
     glEnableVertexAttribArray(2);
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, /*2 * sizeof(GL_FLOAT)*/ 0, (void*)(18 * sizeof(GL_FLOAT)));
+
+    loadShaders(windowContext);
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))

@@ -10,10 +10,9 @@
             "name": "Launch",
             "program": "${workspaceFolder}/build/HelloWorld.exe",
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}/build"
         }
         
-
 
     ]
 }
