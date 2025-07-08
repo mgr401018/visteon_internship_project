@@ -73,7 +73,7 @@ void loadMesh(WindowContext &windowContext, tinygltf::Model& model, unsigned int
     glBindVertexArray(0);
 }
 
-void loadShaders(WindowContext windowContext){
+void loadShaders(WindowContext windowContext, tinygltf::Model& model, std::filesystem::path gltfDirectory, unsigned int materialId){
     // const char* vertexShaderSource = R"(
     //     #version 300 es
 
@@ -83,45 +83,83 @@ void loadShaders(WindowContext windowContext){
     //     }
     // )";
 
-    const char* vertexShaderSource = R"(
-        #version 300 es
+    // const char* vertexShaderSource = R"(
+    //     #version 300 es
 
-        layout(location = 0) in vec2 position;
-        layout(location = 2) in vec2 color;
-        out vec2 vColor;
-        void main(){
-            vColor = color;
-            gl_Position = vec4(position, 0.0, 1.0);        
-        }
-    )";
+    //     layout(location = 0) in vec2 position;
+    //     layout(location = 2) in vec2 color;
+    //     out vec2 vColor;
+    //     void main(){
+    //         vColor = color;
+    //         gl_Position = vec4(position, 0.0, 1.0);        
+    //     }
+    // )";
     
+
+    // // const char* fragmentShaderSource = R"(
+    // //     #version 300 es
+
+    // //     precision mediump float;
+    // //     out vec4 fragColor;
+    // //     void main(){
+    // //         fragColor = vec4(0.76, 0.0, 0.0, 1.0);
+    // //     }
+    // // )";
 
     // const char* fragmentShaderSource = R"(
     //     #version 300 es
 
     //     precision mediump float;
+    //     in vec2 vColor;
     //     out vec4 fragColor;
     //     void main(){
-    //         fragColor = vec4(0.76, 0.0, 0.0, 1.0);
+    //         fragColor = vec4(vColor, 0.33, 1.0);
     //     }
     // )";
 
-    const char* fragmentShaderSource = R"(
-        #version 300 es
+    std::filesystem::path vertexShaderPath;
+    std::filesystem::path fragmentShaderPath;
+    std::string vertexShaderSource;
+    std::string fragmentShaderSource;
 
-        precision mediump float;
-        in vec2 vColor;
-        out vec4 fragColor;
-        void main(){
-            fragColor = vec4(vColor, 0.0, 1.0);
+    auto gltfMaterialExtras = model.materials[materialId].extras;
+    if (gltfMaterialExtras.Has("shader")){
+        auto gltfMaterialShader = gltfMaterialExtras.Get("shader");
+        if(gltfMaterialShader.Has("vertex")){
+            std::string gltfMaterialShaderVertex = gltfMaterialShader.Get("vertex").Get<std::string>();
+            vertexShaderPath = gltfDirectory / gltfMaterialShaderVertex;
         }
-    )";
+        if(gltfMaterialShader.Has("fragment")){
+            std::string gltfMaterialShaderFragment = gltfMaterialShader.Get("fragment").Get<std::string>();
+            fragmentShaderPath = gltfDirectory / gltfMaterialShaderFragment;
+        }
+    }
+
+    std::ifstream vertexShaderFile(vertexShaderPath);
+    if (vertexShaderFile.is_open())
+    {
+        std::stringstream buffer;
+        buffer << vertexShaderFile.rdbuf();
+        vertexShaderSource = buffer.str();
+    }
+
+    std::ifstream fragmentShaderFile(fragmentShaderPath);
+    if (fragmentShaderFile.is_open())
+    {
+        std::stringstream buffer;
+        buffer << fragmentShaderFile.rdbuf();
+        fragmentShaderSource = buffer.str();
+    }
+
+    
+    const char* vertexShaderSourceCStr = vertexShaderSource.c_str();
+    const char* fragmentShaderSourceCStr = fragmentShaderSource.c_str();
 
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
+    glShaderSource(vertexShader, 1, &vertexShaderSourceCStr, nullptr);
 
     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
+    glShaderSource(fragmentShader, 1, &fragmentShaderSourceCStr, nullptr);
 
     glCompileShader(vertexShader);
     GLint status;
@@ -183,7 +221,9 @@ int main(void){
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
-    std::string gltfFilename = "../examples/gltf/01_triangle/export/triangle.gltf";
+    // std::string gltfFilename = "../examples/gltf/01_triangle/export/triangle.gltf";
+    std::string gltfFilename = "../examples/gltf/03_shaders/export/shaders.gltf";
+
 
     tinygltf::Model model;
     tinygltf::TinyGLTF loader;
@@ -301,8 +341,12 @@ int main(void){
     // glEnableVertexAttribArray(2);
     // glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, /*2 * sizeof(GL_FLOAT)*/ 0, (void*)(18 * sizeof(GL_FLOAT)));
 
+    
     loadMesh(windowContext, model, 0);
-    loadShaders(windowContext);
+
+    std::filesystem::path gltfPath = gltfFilename;
+    std::filesystem::path gltfDirectory = gltfPath.parent_path();
+    loadShaders(windowContext, model, gltfDirectory, 0);
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
