@@ -9,6 +9,7 @@ struct WindowGLContext{
     GLuint program;
     GLuint indexBuffer;
     GLuint indecesCount;
+    std::unordered_map<std::string, float> materialUniformFloats;
 };
 
 struct WindowContext{
@@ -105,6 +106,28 @@ void loadMesh(WindowContext &windowContext, tinygltf::Model& model, unsigned int
     glBindVertexArray(0);
 }
 
+//static draw materialSetP
+static void materialSetProperty(WindowGLContext& glContext, std::string uniformName, float value)
+{
+    if (glContext.materialUniformFloats.find(uniformName) != glContext.materialUniformFloats.end())
+    {
+        glContext.materialUniformFloats[uniformName] = value;
+    }
+}
+
+static void materialUpdateProperties(WindowGLContext& glContext)
+{
+    for (auto& uniform : glContext.materialUniformFloats)
+    {
+        GLint location = glGetUniformLocation(glContext.program, uniform.first.c_str());
+        if (location != -1)
+        {
+            glUniform1f(location, uniform.second);
+        }
+        std::cout << "Uniform: " << uniform.first << " = " << uniform.second << std::endl;
+    }
+}
+
 void loadShaders(WindowContext windowContext, tinygltf::Model& model, std::filesystem::path gltfDirectory, unsigned int materialId){
     // const char* vertexShaderSource = R"(
     //     #version 300 es
@@ -178,6 +201,26 @@ void loadShaders(WindowContext windowContext, tinygltf::Model& model, std::files
             if(gltfMaterialShader.Has("fragment")){
                 std::string gltfMaterialShaderFragment = gltfMaterialShader.Get("fragment").Get<std::string>();
                 fragmentShaderPath = gltfDirectory / gltfMaterialShaderFragment;
+            }
+            if (gltfMaterialShader.Has("uniforms")){
+                auto gltfUniforms = gltfMaterialShader.Get("uniforms");
+                for (int uniformIdx = 0; uniformIdx < gltfUniforms.ArrayLen(); uniformIdx++){
+                    auto uniform = gltfUniforms.Get(uniformIdx);
+                    std::string uniformName;
+                    if (uniform.Has("name")){
+                        uniformName = uniform.Get("name").Get<std::string>();
+                    }
+                    if (uniform.Has("type")){
+                        std::string type = uniform.Get("type").Get<std::string>();
+                        auto uniformValue = uniform.Get("value");
+                        if (type == "Float"){
+                            double uniformValueFloat = uniformValue.Get(0).Get<double>();
+                            windowContext.gl.materialUniformFloats[uniformName] = uniformValueFloat;
+                            std::cout << "Uniforms: " << uniformName << " = " << uniformValueFloat << std::endl;
+                        }
+
+                    }
+                }
             }
         }
 
@@ -273,8 +316,9 @@ int main(void){
 
     // std::string gltfFilename = "../examples/gltf/01_triangle/export/triangle.gltf";
     // std::string gltfFilename = "../examples/gltf/03_shaders/export/shaders.gltf";
-    std::string gltfFilename = "../examples/gltf/04_suzanne/export/suzanne.gltf";
-
+    //std::string gltfFilename = "../examples/gltf/04_suzanne/export/suzanne.gltf";
+    std::string gltfFilename = "../examples/gltf/05_suzanne_uniforms/export/suzanne.gltf";
+    //std::string gltfFilename = "../examples/gltf/06_shadertoy/export/shadertoy.gltf";
 
     tinygltf::Model model;
     tinygltf::TinyGLTF loader;
