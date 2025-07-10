@@ -3,18 +3,29 @@
 #include <GLFW/glfw3.h>
 #include <GLES3/gl3.h>
 #include "tiny_gltf.h"
+#include "basic_types.hpp"
 
 struct WindowGLContext{
     GLuint vertexArrayObject;
     GLuint program;
     GLuint indexBuffer;
     GLuint indecesCount;
+    std::unordered_map<std::string, int> materialUniformInt;
     std::unordered_map<std::string, float> materialUniformFloats;
+    std::unordered_map<std::string, Vector2> materialUniformVector2;
+    std::unordered_map<std::string, Vector3> materialUniformVector3;
+    std::unordered_map<std::string, Vector4> materialUniformVector4;
 };
 
 struct WindowContext{
     WindowGLContext gl;
 };
+
+static float getCurrentTime(){
+    auto currentTime = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime.time_since_epoch()).count();
+    return duration / 1050.0f;
+}
 
 void loadMesh(WindowContext &windowContext, tinygltf::Model& model, unsigned int meshId){
     GLuint vertexBuffer = 0;
@@ -115,8 +126,50 @@ static void materialSetProperty(WindowGLContext& glContext, std::string uniformN
     }
 }
 
-static void materialUpdateProperties(WindowGLContext& glContext)
+static void materialSetProperty(WindowGLContext& glContext, std::string uniformName, int value)
 {
+    if (glContext.materialUniformInt.find(uniformName) != glContext.materialUniformInt.end())
+    {
+        glContext.materialUniformInt[uniformName] = value;
+    }
+}    
+
+static void materialSetProperty(WindowGLContext& glContext, std::string uniformName, Vector4 value)
+{
+    if (glContext.materialUniformVector4.find(uniformName) != glContext.materialUniformVector4.end())
+    {
+        glContext.materialUniformVector4[uniformName] = value;
+    }
+}
+
+static void materialSetProperty(WindowGLContext& glContext, std::string uniformName, Vector3 value)
+{
+    if (glContext.materialUniformVector3.find(uniformName) != glContext.materialUniformVector3.end())
+    {
+        glContext.materialUniformVector3[uniformName] = value;
+    }
+}
+
+static void materialSetProperty(WindowGLContext& glContext, std::string uniformName, Vector2 value)
+{
+    if (glContext.materialUniformVector2.find(uniformName) != glContext.materialUniformVector2.end())
+    {
+        glContext.materialUniformVector2[uniformName] = value;
+    }
+}
+
+static void materialUpdateProperties(WindowGLContext& glContext)
+{   
+    for (auto& uniform : glContext.materialUniformInt)
+    {
+        GLint location = glGetUniformLocation(glContext.program, uniform.first.c_str());
+        if (location != -1)
+        {
+            glUniform1i(location, uniform.second);
+        }
+        std::cout << "Uniform: " << uniform.first << " = " << uniform.second << std::endl;
+    }
+
     for (auto& uniform : glContext.materialUniformFloats)
     {
         GLint location = glGetUniformLocation(glContext.program, uniform.first.c_str());
@@ -126,9 +179,40 @@ static void materialUpdateProperties(WindowGLContext& glContext)
         }
         std::cout << "Uniform: " << uniform.first << " = " << uniform.second << std::endl;
     }
+
+    for (auto& uniform : glContext.materialUniformVector4)
+    {
+        GLint location = glGetUniformLocation(glContext.program, uniform.first.c_str());
+        if (location != -1)
+        {
+            glUniform4f(location, uniform.second.x, uniform.second.y, uniform.second.z, uniform.second.w);
+        }
+        std::cout << "Uniform: " << uniform.first << " = " << uniform.second.x << ", "<< uniform.second.y << ", "<< uniform.second.z << ", "<< uniform.second.w << std::endl;
+    }
+
+    for (auto& uniform : glContext.materialUniformVector3)
+    {
+        GLint location = glGetUniformLocation(glContext.program, uniform.first.c_str());
+        if (location != -1)
+        {
+            glUniform3f(location, uniform.second.x, uniform.second.y, uniform.second.z);
+        }
+        std::cout << "Uniform: " << uniform.first << " = " << uniform.second.x << ", "<< uniform.second.y << ", "<< uniform.second.z <<std::endl;
+    }
+
+    for (auto& uniform : glContext.materialUniformVector2)
+    {
+        GLint location = glGetUniformLocation(glContext.program, uniform.first.c_str());
+        if (location != -1)
+        {
+            glUniform2f(location, uniform.second.x, uniform.second.y);
+        }
+        std::cout << "Uniform: " << uniform.first << " = " << uniform.second.x << ", "<< uniform.second.y <<std::endl;
+    }
 }
 
-void loadShaders(WindowContext windowContext, tinygltf::Model& model, std::filesystem::path gltfDirectory, unsigned int materialId){
+
+void loadShaders(WindowContext& windowContext, tinygltf::Model& model, std::filesystem::path gltfDirectory, unsigned int materialId){
     // const char* vertexShaderSource = R"(
     //     #version 300 es
 
@@ -217,6 +301,28 @@ void loadShaders(WindowContext windowContext, tinygltf::Model& model, std::files
                             double uniformValueFloat = uniformValue.Get(0).Get<double>();
                             windowContext.gl.materialUniformFloats[uniformName] = uniformValueFloat;
                             std::cout << "Uniforms: " << uniformName << " = " << uniformValueFloat << std::endl;
+                        }else if (type == "Vector4"){
+                            double x = uniformValue.Get(0).Get<double>();
+                            double y = uniformValue.Get(1).Get<double>();
+                            double z = uniformValue.Get(2).Get<double>();
+                            double w = uniformValue.Get(3).Get<double>();
+                            windowContext.gl.materialUniformVector4[uniformName] = Vector4(x, y, z, w);
+                            std::cout << "Uniform:" << uniformName << " = " << x << ", " << y << ", " << z << ", " << w << "\n"; 
+                        }else if(type == "Vector3"){
+                            double x = uniformValue.Get(0).Get<double>();
+                            double y = uniformValue.Get(1).Get<double>();
+                            double z = uniformValue.Get(2).Get<double>();
+                            windowContext.gl.materialUniformVector3[uniformName] = Vector3(x, y, z);
+                            std::cout << "Uniform:" << uniformName << " = " << x << ", " << y << ", " << z << "\n";
+                        } else if(type == "Vector2"){
+                            double x = uniformValue.Get(0).Get<double>();
+                            double y = uniformValue.Get(1).Get<double>();
+                            windowContext.gl.materialUniformVector2[uniformName] = Vector2(x, y);
+                            std::cout << "Uniform:" << uniformName << " = " << x << ", " << y << "\n";
+                        } else if(type == "Int"){
+                            int uniformValueInt = uniformValue.Get(0).Get<int>();
+                            windowContext.gl.materialUniformInt[uniformName] = uniformValueInt;
+                            std::cout << "Uniform:" << uniformName << ": " << uniformValueInt << "\n";
                         }
 
                     }
@@ -317,8 +423,8 @@ int main(void){
     // std::string gltfFilename = "../examples/gltf/01_triangle/export/triangle.gltf";
     // std::string gltfFilename = "../examples/gltf/03_shaders/export/shaders.gltf";
     //std::string gltfFilename = "../examples/gltf/04_suzanne/export/suzanne.gltf";
-    std::string gltfFilename = "../examples/gltf/05_suzanne_uniforms/export/suzanne.gltf";
-    //std::string gltfFilename = "../examples/gltf/06_shadertoy/export/shadertoy.gltf";
+    //std::string gltfFilename = "../examples/gltf/05_suzanne_uniforms/export/suzanne.gltf";
+    std::string gltfFilename = "../examples/gltf/06_shadertoy/export/shadertoy.gltf";
 
     tinygltf::Model model;
     tinygltf::TinyGLTF loader;
@@ -467,6 +573,11 @@ int main(void){
 
         //glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, windowContext.gl.indexBuffer);
+
+
+        materialSetProperty(windowContext.gl, "iTime", getCurrentTime());
+        materialUpdateProperties(windowContext.gl);
+        
         glDrawElements(GL_TRIANGLES, windowContext.gl.indecesCount, GL_UNSIGNED_SHORT, nullptr);
 
         /* Swap front and back buffers */

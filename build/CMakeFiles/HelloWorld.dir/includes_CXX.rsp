@@ -1,1 +1,1 @@
--IC:/Users/Trainee/visteon_internship_project/thirdparty/glfw/include -IC:/Users/Trainee/visteon_internship_project/thirdparty/pvr/include -IC:/Users/Trainee/visteon_internship_project/thirdparty/tinyGLTF
+-IC:/Users/Trainee/visteon_internship_project/thirdparty/glfw/include -IC:/Users/Trainee/visteon_internship_project/src -IC:/Users/Trainee/visteon_internship_project/thirdparty/pvr/include -IC:/Users/Trainee/visteon_internship_project/thirdparty/tinyGLTF

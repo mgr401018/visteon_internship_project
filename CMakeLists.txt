@@ -24,6 +24,7 @@ endif()
 
 target_include_directories(HelloWorld PRIVATE 
     thirdparty/glfw/include
+    src
 )
 
 if(WIN32)

@@ -3,6 +3,7 @@
 
 CMakeFiles/HelloWorld.dir/src/main.cpp.obj
  C:/Users/Trainee/visteon_internship_project/src/main.cpp
+ C:/Users/Trainee/visteon_internship_project/src/basic_types.hpp
  C:/Users/Trainee/visteon_internship_project/thirdparty/glfw/include/GLFW/glfw3.h
  C:/Users/Trainee/visteon_internship_project/thirdparty/pvr/include/GLES3/gl3.h
  C:/Users/Trainee/visteon_internship_project/thirdparty/pvr/include/GLES3/gl3platform.h

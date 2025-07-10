@@ -39,6 +39,7 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "vector": "cpp",
-        "__config": "cpp"
+        "__config": "cpp",
+        "unordered_map": "cpp"
     }
 }
