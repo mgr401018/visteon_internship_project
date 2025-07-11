@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/Trainee/visteon_internship_project/build/cmake_install.cmake",
+		"C:/Users/Trainee/visteon_internship_project/build/thirdparty/glfw/cmake_install.cmake",
+		"C:/Users/Trainee/visteon_internship_project/build/thirdparty/glfw/src/cmake_install.cmake",
+		"C:/Users/Trainee/visteon_internship_project/build/thirdparty/glfw/docs/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

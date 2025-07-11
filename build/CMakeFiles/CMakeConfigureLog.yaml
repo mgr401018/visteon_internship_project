@@ -1,0 +1,632 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/cc.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+      
+      The C compiler identification is Clang, found in:
+        C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/4.0.3/CompilerIdC/a.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/c++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+      
+      The CXX compiler identification is Clang, found in:
+        C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/4.0.3/CompilerIdCXX/a.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s"
+      binary: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s'
+        
+        Run Build Command(s): C:/Users/Trainee/scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_577ac/fast
+        C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_577ac.dir\\build.make CMakeFiles/cmTC_577ac.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s'
+        Building C object CMakeFiles/cmTC_577ac.dir/CMakeCCompilerABI.c.obj
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe   -v -MD -MT CMakeFiles/cmTC_577ac.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_577ac.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_577ac.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c
+        clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin
+        Configuration file: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg
+         (in-process)
+         "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-20.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-sized-deallocation -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s -v -fcoverage-compilation-dir=C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s -resource-dir C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20 -dependency-file "CMakeFiles\\\\cmTC_577ac.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_577ac.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/usr/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -exception-model=seh -faddrsig -o "CMakeFiles\\\\cmTC_577ac.dir\\\\CMakeCCompilerABI.c.obj" -x c "C:\\\\Users\\\\Trainee\\\\scoop\\\\apps\\\\cmake\\\\current\\\\share\\\\cmake-4.0\\\\Modules\\\\CMakeCCompilerABI.c"
+        clang -cc1 version 20.1.7 based upon LLVM 20.1.7 default target x86_64-w64-mingw32
+        ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/usr/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include
+         C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include
+        End of search list.
+        Linking C executable cmTC_577ac.exe
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_577ac.dir\\link.txt --verbose=1
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_577ac.dir/objects.a
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_577ac.dir/objects.a @CMakeFiles\\cmTC_577ac.dir\\objects1.rsp
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_577ac.dir/objects.a -Wl,--no-whole-archive -o cmTC_577ac.exe -Wl,--out-implib,libcmTC_577ac.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin
+        Configuration file: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg
+         "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld" -m i386pep -Bdynamic -o cmTC_577ac.exe C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows -v --whole-archive "CMakeFiles\\\\cmTC_577ac.dir/objects.a" --no-whole-archive --out-implib libcmTC_577ac.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o
+        LLD 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082) (compatible with GNU linkers)
+        mingw32-make[1]: Leaving directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:191 (message)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include]
+          add: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include]
+        end of search list found
+        collapse include dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include]
+        collapse include dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include]
+        implicit include dirs: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s']
+        ignore line: []
+        ignore line: [Run Build Command(s): C:/Users/Trainee/scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_577ac/fast]
+        ignore line: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_577ac.dir\\build.make CMakeFiles/cmTC_577ac.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s']
+        ignore line: [Building C object CMakeFiles/cmTC_577ac.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe   -v -MD -MT CMakeFiles/cmTC_577ac.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_577ac.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_577ac.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c]
+        ignore line: [clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin]
+        ignore line: [Configuration file: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg]
+        ignore line: [ (in-process)]
+        ignore line: [ "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-20.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-sized-deallocation -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s -v -fcoverage-compilation-dir=C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-cgii6s -resource-dir C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20 -dependency-file "CMakeFiles\\\\cmTC_577ac.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_577ac.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/usr/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -exception-model=seh -faddrsig -o "CMakeFiles\\\\cmTC_577ac.dir\\\\CMakeCCompilerABI.c.obj" -x c "C:\\\\Users\\\\Trainee\\\\scoop\\\\apps\\\\cmake\\\\current\\\\share\\\\cmake-4.0\\\\Modules\\\\CMakeCCompilerABI.c"]
+        ignore line: [clang -cc1 version 20.1.7 based upon LLVM 20.1.7 default target x86_64-w64-mingw32]
+        ignore line: [ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/usr/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include]
+        ignore line: [ C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking C executable cmTC_577ac.exe]
+        ignore line: [C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_577ac.dir\\link.txt --verbose=1]
+        ignore line: [C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_577ac.dir/objects.a]
+        ignore line: [C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_577ac.dir/objects.a @CMakeFiles\\cmTC_577ac.dir\\objects1.rsp]
+        ignore line: [C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe  -v -Wl -v -Wl --whole-archive CMakeFiles\\cmTC_577ac.dir/objects.a -Wl --no-whole-archive -o cmTC_577ac.exe -Wl --out-implib libcmTC_577ac.dll.a -Wl --major-image-version 0 --minor-image-version 0]
+        ignore line: [clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin]
+        ignore line: [Configuration file: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg]
+        link line: [ "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld" -m i386pep -Bdynamic -o cmTC_577ac.exe C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows -v --whole-archive "CMakeFiles\\\\cmTC_577ac.dir/objects.a" --no-whole-archive --out-implib libcmTC_577ac.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_577ac.exe] ==> ignore
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o] ==> obj [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o] ==> obj [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o]
+          arg [-LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib] ==> dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib]
+          arg [-LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib] ==> dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib]
+          arg [-LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib] ==> dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib]
+          arg [-LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows] ==> dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows]
+          arg [-v] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [CMakeFiles\\\\cmTC_577ac.dir/objects.a] ==> ignore
+          arg [--no-whole-archive] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_577ac.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a] ==> lib [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a]
+          arg [-lunwind] ==> lib [unwind]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a] ==> lib [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a]
+          arg [-lunwind] ==> lib [unwind]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o] ==> obj [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o]
+        linker tool for 'C': C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld
+        remove lib [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a]
+        remove lib [msvcrt]
+        remove lib [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a]
+        remove lib [msvcrt]
+        collapse library dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib]
+        collapse library dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib]
+        collapse library dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows]
+        implicit libs: [mingw32;unwind;moldname;mingwex;advapi32;shell32;user32;kernel32;mingw32;unwind;moldname;mingwex;kernel32]
+        implicit objs: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o]
+        implicit dirs: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:270 (cmake_determine_linker_id)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld" "-v"
+      LLD 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082) (compatible with GNU linkers)
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom"
+      binary: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom'
+        
+        Run Build Command(s): C:/Users/Trainee/scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_fa2dd/fast
+        C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_fa2dd.dir\\build.make CMakeFiles/cmTC_fa2dd.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom'
+        Building CXX object CMakeFiles/cmTC_fa2dd.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\c++.exe   -v -MD -MT CMakeFiles/cmTC_fa2dd.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_fa2dd.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles\\cmTC_fa2dd.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp
+        clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin
+        Configuration file: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg
+         (in-process)
+         "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-20.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-sized-deallocation -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom -v -fcoverage-compilation-dir=C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom -resource-dir C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20 -dependency-file "CMakeFiles\\\\cmTC_fa2dd.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_fa2dd.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include/c++/v1 -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include/c++/v1 -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/usr/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include -fdeprecated-macro -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -exception-model=seh -faddrsig -o "CMakeFiles\\\\cmTC_fa2dd.dir\\\\CMakeCXXCompilerABI.cpp.obj" -x c++ "C:\\\\Users\\\\Trainee\\\\scoop\\\\apps\\\\cmake\\\\current\\\\share\\\\cmake-4.0\\\\Modules\\\\CMakeCXXCompilerABI.cpp"
+        clang -cc1 version 20.1.7 based upon LLVM 20.1.7 default target x86_64-w64-mingw32
+        ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include/c++/v1"
+        ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/usr/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include/c++/v1
+         C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include
+         C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include
+        End of search list.
+        Linking CXX executable cmTC_fa2dd.exe
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_fa2dd.dir\\link.txt --verbose=1
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_fa2dd.dir/objects.a
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_fa2dd.dir/objects.a @CMakeFiles\\cmTC_fa2dd.dir\\objects1.rsp
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\c++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_fa2dd.dir/objects.a -Wl,--no-whole-archive -o cmTC_fa2dd.exe -Wl,--out-implib,libcmTC_fa2dd.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin
+        Configuration file: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg
+         "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld" -m i386pep -Bdynamic -o cmTC_fa2dd.exe C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows -v --whole-archive "CMakeFiles\\\\cmTC_fa2dd.dir/objects.a" --no-whole-archive --out-implib libcmTC_fa2dd.dll.a --major-image-version 0 --minor-image-version 0 -lc++ -lmingw32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o
+        LLD 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082) (compatible with GNU linkers)
+        mingw32-make[1]: Leaving directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:191 (message)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include/c++/v1]
+          add: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include]
+          add: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include]
+        end of search list found
+        collapse include dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include/c++/v1] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include/c++/v1]
+        collapse include dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include]
+        collapse include dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include]
+        implicit include dirs: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include/c++/v1;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom']
+        ignore line: []
+        ignore line: [Run Build Command(s): C:/Users/Trainee/scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_fa2dd/fast]
+        ignore line: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_fa2dd.dir\\build.make CMakeFiles/cmTC_fa2dd.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom']
+        ignore line: [Building CXX object CMakeFiles/cmTC_fa2dd.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\c++.exe   -v -MD -MT CMakeFiles/cmTC_fa2dd.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_fa2dd.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles\\cmTC_fa2dd.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp]
+        ignore line: [clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin]
+        ignore line: [Configuration file: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg]
+        ignore line: [ (in-process)]
+        ignore line: [ "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-20.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-sized-deallocation -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom -v -fcoverage-compilation-dir=C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-q3qhom -resource-dir C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20 -dependency-file "CMakeFiles\\\\cmTC_fa2dd.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_fa2dd.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include/c++/v1 -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include/c++/v1 -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/usr/include -internal-isystem C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include -fdeprecated-macro -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -exception-model=seh -faddrsig -o "CMakeFiles\\\\cmTC_fa2dd.dir\\\\CMakeCXXCompilerABI.cpp.obj" -x c++ "C:\\\\Users\\\\Trainee\\\\scoop\\\\apps\\\\cmake\\\\current\\\\share\\\\cmake-4.0\\\\Modules\\\\CMakeCXXCompilerABI.cpp"]
+        ignore line: [clang -cc1 version 20.1.7 based upon LLVM 20.1.7 default target x86_64-w64-mingw32]
+        ignore line: [ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include/c++/v1"]
+        ignore line: [ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/usr/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include/c++/v1]
+        ignore line: [ C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/include]
+        ignore line: [ C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking CXX executable cmTC_fa2dd.exe]
+        ignore line: [C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_fa2dd.dir\\link.txt --verbose=1]
+        ignore line: [C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_fa2dd.dir/objects.a]
+        ignore line: [C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_fa2dd.dir/objects.a @CMakeFiles\\cmTC_fa2dd.dir\\objects1.rsp]
+        ignore line: [C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\c++.exe  -v -Wl -v -Wl --whole-archive CMakeFiles\\cmTC_fa2dd.dir/objects.a -Wl --no-whole-archive -o cmTC_fa2dd.exe -Wl --out-implib libcmTC_fa2dd.dll.a -Wl --major-image-version 0 --minor-image-version 0]
+        ignore line: [clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin]
+        ignore line: [Configuration file: C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg]
+        link line: [ "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld" -m i386pep -Bdynamic -o cmTC_fa2dd.exe C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib -LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows -v --whole-archive "CMakeFiles\\\\cmTC_fa2dd.dir/objects.a" --no-whole-archive --out-implib libcmTC_fa2dd.dll.a --major-image-version 0 --minor-image-version 0 -lc++ -lmingw32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_fa2dd.exe] ==> ignore
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o] ==> obj [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o] ==> obj [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o]
+          arg [-LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib] ==> dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib]
+          arg [-LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib] ==> dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib]
+          arg [-LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib] ==> dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib]
+          arg [-LC:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows] ==> dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows]
+          arg [-v] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [CMakeFiles\\\\cmTC_fa2dd.dir/objects.a] ==> ignore
+          arg [--no-whole-archive] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_fa2dd.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lc++] ==> lib [c++]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a] ==> lib [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a]
+          arg [-lunwind] ==> lib [unwind]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a] ==> lib [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a]
+          arg [-lunwind] ==> lib [unwind]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o] ==> obj [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o]
+        linker tool for 'CXX': C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld
+        remove lib [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a]
+        remove lib [msvcrt]
+        remove lib [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows/libclang_rt.builtins-x86_64.a]
+        remove lib [msvcrt]
+        collapse library dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib]
+        collapse library dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib]
+        collapse library dir [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows] ==> [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows]
+        implicit libs: [c++;mingw32;unwind;moldname;mingwex;advapi32;shell32;user32;kernel32;mingw32;unwind;moldname;mingwex;kernel32]
+        implicit objs: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crt2.o;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o]
+        implicit dirs: [C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/lib;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib;C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/lib/clang/20/lib/windows]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:270 (cmake_determine_linker_id)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/ld.lld" "-v"
+      LLD 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082) (compatible with GNU linkers)
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/FindThreads.cmake:97 (check_c_source_compiles)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "thirdparty/glfw/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-9tme8z"
+      binary: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-9tme8z"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Trainee/visteon_internship_project/thirdparty/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-9tme8z'
+        
+        Run Build Command(s): C:/Users/Trainee/scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_a990e/fast
+        C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_a990e.dir\\build.make CMakeFiles/cmTC_a990e.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-9tme8z'
+        Building C object CMakeFiles/cmTC_a990e.dir/src.c.obj
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe -DCMAKE_HAVE_LIBC_PTHREAD   -MD -MT CMakeFiles/cmTC_a990e.dir/src.c.obj -MF CMakeFiles\\cmTC_a990e.dir\\src.c.obj.d -o CMakeFiles\\cmTC_a990e.dir\\src.c.obj -c C:\\Users\\Trainee\\visteon_internship_project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9tme8z\\src.c
+        Linking C executable cmTC_a990e.exe
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_a990e.dir\\link.txt --verbose=1
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_a990e.dir/objects.a
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_a990e.dir/objects.a @CMakeFiles\\cmTC_a990e.dir\\objects1.rsp
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe -Wl,--whole-archive CMakeFiles\\cmTC_a990e.dir/objects.a -Wl,--no-whole-archive -o cmTC_a990e.exe -Wl,--out-implib,libcmTC_a990e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_a990e.dir\\linkLibs.rsp
+        ld.lld: error: undefined symbol: pthread_create
+        >>> referenced by objects.a(src.c.obj):(main)
+        
+        ld.lld: error: undefined symbol: pthread_detach
+        >>> referenced by objects.a(src.c.obj):(main)
+        
+        ld.lld: error: undefined symbol: pthread_cancel
+        >>> referenced by objects.a(src.c.obj):(main)
+        
+        ld.lld: error: undefined symbol: pthread_join
+        >>> referenced by objects.a(src.c.obj):(main)
+        
+        ld.lld: error: undefined symbol: pthread_exit
+        >>> referenced by objects.a(src.c.obj):(main)
+        clang-20: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_a990e.dir\\build.make:104: cmTC_a990e.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-9tme8z'
+        mingw32-make: *** [Makefile:133: cmTC_a990e/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/FindThreads.cmake:112 (check_library_exists)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "thirdparty/glfw/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2pk2lm"
+      binary: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2pk2lm"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Trainee/visteon_internship_project/thirdparty/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2pk2lm'
+        
+        Run Build Command(s): C:/Users/Trainee/scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_fb2c9/fast
+        C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_fb2c9.dir\\build.make CMakeFiles/cmTC_fb2c9.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2pk2lm'
+        Building C object CMakeFiles/cmTC_fb2c9.dir/CheckFunctionExists.c.obj
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe   -DCHECK_FUNCTION_EXISTS=pthread_create -MD -MT CMakeFiles/cmTC_fb2c9.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_fb2c9.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_fb2c9.dir\\CheckFunctionExists.c.obj -c C:\\Users\\Trainee\\visteon_internship_project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2pk2lm\\CheckFunctionExists.c
+        Linking C executable cmTC_fb2c9.exe
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_fb2c9.dir\\link.txt --verbose=1
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_fb2c9.dir/objects.a
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_fb2c9.dir/objects.a @CMakeFiles\\cmTC_fb2c9.dir\\objects1.rsp
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe  -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,--whole-archive CMakeFiles\\cmTC_fb2c9.dir/objects.a -Wl,--no-whole-archive -o cmTC_fb2c9.exe -Wl,--out-implib,libcmTC_fb2c9.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_fb2c9.dir\\linkLibs.rsp
+        lld: error: unable to find library -lpthreads
+        clang-20: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_fb2c9.dir\\build.make:104: cmTC_fb2c9.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2pk2lm'
+        mingw32-make: *** [Makefile:133: cmTC_fb2c9/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/FindThreads.cmake:112 (check_library_exists)"
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "thirdparty/glfw/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2ssjgg"
+      binary: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2ssjgg"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Trainee/visteon_internship_project/thirdparty/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2ssjgg'
+        
+        Run Build Command(s): C:/Users/Trainee/scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_b3d96/fast
+        C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_b3d96.dir\\build.make CMakeFiles/cmTC_b3d96.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2ssjgg'
+        Building C object CMakeFiles/cmTC_b3d96.dir/CheckFunctionExists.c.obj
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe   -DCHECK_FUNCTION_EXISTS=pthread_create -MD -MT CMakeFiles/cmTC_b3d96.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_b3d96.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_b3d96.dir\\CheckFunctionExists.c.obj -c C:\\Users\\Trainee\\visteon_internship_project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2ssjgg\\CheckFunctionExists.c
+        Linking C executable cmTC_b3d96.exe
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_b3d96.dir\\link.txt --verbose=1
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_b3d96.dir/objects.a
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_b3d96.dir/objects.a @CMakeFiles\\cmTC_b3d96.dir\\objects1.rsp
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe  -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,--whole-archive CMakeFiles\\cmTC_b3d96.dir/objects.a -Wl,--no-whole-archive -o cmTC_b3d96.exe -Wl,--out-implib,libcmTC_b3d96.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_b3d96.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-2ssjgg'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "thirdparty/glfw/src/CMakeLists.txt:274 (check_include_file)"
+    checks:
+      - "Looking for dinput.h"
+    directories:
+      source: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-tiwesh"
+      binary: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-tiwesh"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Trainee/visteon_internship_project/thirdparty/glfw/CMake/modules"
+    buildResult:
+      variable: "DINPUT_H_FOUND"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-tiwesh'
+        
+        Run Build Command(s): C:/Users/Trainee/scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_a01db/fast
+        C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_a01db.dir\\build.make CMakeFiles/cmTC_a01db.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-tiwesh'
+        Building C object CMakeFiles/cmTC_a01db.dir/CheckIncludeFile.c.obj
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe    -MD -MT CMakeFiles/cmTC_a01db.dir/CheckIncludeFile.c.obj -MF CMakeFiles\\cmTC_a01db.dir\\CheckIncludeFile.c.obj.d -o CMakeFiles\\cmTC_a01db.dir\\CheckIncludeFile.c.obj -c C:\\Users\\Trainee\\visteon_internship_project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tiwesh\\CheckIncludeFile.c
+        Linking C executable cmTC_a01db.exe
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_a01db.dir\\link.txt --verbose=1
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_a01db.dir/objects.a
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_a01db.dir/objects.a @CMakeFiles\\cmTC_a01db.dir\\objects1.rsp
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe -Wl,--whole-archive CMakeFiles\\cmTC_a01db.dir/objects.a -Wl,--no-whole-archive -o cmTC_a01db.exe -Wl,--out-implib,libcmTC_a01db.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_a01db.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-tiwesh'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trainee/scoop/apps/cmake/current/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "thirdparty/glfw/src/CMakeLists.txt:275 (check_include_file)"
+    checks:
+      - "Looking for xinput.h"
+    directories:
+      source: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-m8ddp7"
+      binary: "C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-m8ddp7"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/Trainee/visteon_internship_project/thirdparty/glfw/CMake/modules"
+    buildResult:
+      variable: "XINPUT_H_FOUND"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-m8ddp7'
+        
+        Run Build Command(s): C:/Users/Trainee/scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_ad228/fast
+        C:/Visteon/llvm-mingw-20250613-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_ad228.dir\\build.make CMakeFiles/cmTC_ad228.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-m8ddp7'
+        Building C object CMakeFiles/cmTC_ad228.dir/CheckIncludeFile.c.obj
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe    -MD -MT CMakeFiles/cmTC_ad228.dir/CheckIncludeFile.c.obj -MF CMakeFiles\\cmTC_ad228.dir\\CheckIncludeFile.c.obj.d -o CMakeFiles\\cmTC_ad228.dir\\CheckIncludeFile.c.obj -c C:\\Users\\Trainee\\visteon_internship_project\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m8ddp7\\CheckIncludeFile.c
+        Linking C executable cmTC_ad228.exe
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_ad228.dir\\link.txt --verbose=1
+        C:\\Users\\Trainee\\scoop\\apps\\cmake\\current\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_ad228.dir/objects.a
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_ad228.dir/objects.a @CMakeFiles\\cmTC_ad228.dir\\objects1.rsp
+        C:\\Visteon\\llvm-mingw-20250613-msvcrt-x86_64\\bin\\cc.exe -Wl,--whole-archive CMakeFiles\\cmTC_ad228.dir/objects.a -Wl,--no-whole-archive -o cmTC_ad228.exe -Wl,--out-implib,libcmTC_ad228.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_ad228.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'C:/Users/Trainee/visteon_internship_project/build/CMakeFiles/CMakeScratch/TryCompile-m8ddp7'
+        
+      exitCode: 0
+...
